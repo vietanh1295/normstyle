@@ -55,7 +55,7 @@ class ShowController extends Controller
         );
         return view('\product\index')->with($data);
     }
-    public function showOption($slugmaterial, $slugtype)
+    public function showMT($slugmaterial, $slugtype)
     {   
          $material = Material::where('slug',$slugmaterial)->get();
          $type = Type::where('slug',$slugtype)->get();
@@ -69,6 +69,58 @@ class ShowController extends Controller
            foreach($productsType as $proType){
                 if($proMat==$proType){
                     array_push($products, $proType);
+                }
+           } 
+         }
+         $data = array(
+            'products'=>$products,
+            'types'=>$types,
+            'materials'=>$materials,
+            'styles'=>$styles
+        );
+         return view('\product\index')->with($data);
+         // return $slugmaterial;
+    }
+    public function showMS($slugmaterial, $slugstyle)
+    {   
+         $material = Material::where('slug',$slugmaterial)->get();
+         $style = Style::where('slug',$slugstyle)->get();
+         $types = Type::all();
+         $materials = Material::all();
+         $styles = Style::all();
+         $products = [];
+         $productsMat = $material[0]->products;
+         $productsStyle = $style[0]->products;
+         foreach($productsMat as $proMat){
+           foreach($productsStyle as $proStyle){
+                if($proMat==$proStyle){
+                    array_push($products, $proStyle);
+                }
+           } 
+         }
+         $data = array(
+            'products'=>$products,
+            'types'=>$types,
+            'materials'=>$materials,
+            'styles'=>$styles
+        );
+         return view('\product\index')->with($data);
+         // return $slugmaterial;
+    }
+    public function showTS($slugtype, $slugstyle)
+    {   
+         $type = Type::where('slug',$slugtype)->get();
+         $style = Style::where('slug',$slugstyle)->get();
+         $types = Type::all();
+         $materials = Material::all();
+         $styles = Style::all();
+         $products = [];
+         $productsType = $type[0]->products;
+         $productsStyle = $style[0]->products;
+         foreach($productsType as $proType){
+           foreach($productsStyle as $proStyle){
+                if($proType==$proStyle){
+                    array_push($products, $proStyle);
                 }
            } 
          }

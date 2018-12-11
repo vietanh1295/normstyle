@@ -67,6 +67,8 @@
     <h3 class="h3"><a href="/product/trang-suc-nam-{{$materials[0]->slug}}/{{$types[0]->slug}}">nhan nam bac</a></h3>
     <h2>material-style</h2>
     <h3 class="h3"><a href="/product/trang-suc-nam-{{$materials[0]->slug}}/style/{{$styles[0]->slug}}">bac-phuong dong style</a></h3>
+    <h2>type-style</h2>
+    <h3 class="h3"><a href="/product/trang-suc-nam/{{$types[0]->slug}}/style/{{$styles[0]->slug}}">nhan nam/phuong dong</a></h3>
     <div class="row">
         @if(count($products)>0)
         @foreach($products as $product)
