@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 Route::get('/product/trang-suc-nam/{slugtype}', 'ShowController@showType');
 Route::get('/product/trang-suc-nam-{slugmaterial}', 'ShowController@showMaterial');
-Route::get('/product/trang-suc-nam/{slugstyle}-style', 'ShowController@showStyle');
+Route::get('/product/trang-suc-nam/style/{slugstyle}', 'ShowController@showStyle');
 Route::get('/product/trang-suc-nam-{slugmaterial}/{slugtype}', 'ShowController@showOption');
 Route::get('/product/createtype', function(){
 	return view('product.createtype');

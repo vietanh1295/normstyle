@@ -42,7 +42,7 @@ class ShowController extends Controller
     }
     public function showStyle($slugstyle)
     {   
-        $style = Material::where('slug',$slugstyle)->get();
+        $style = Style::where('slug',$slugstyle)->get();
         $products = $style[0]->products;
         $types = Type::all();
         $materials = Material::all();
