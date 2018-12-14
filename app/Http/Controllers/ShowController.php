@@ -133,4 +133,36 @@ class ShowController extends Controller
          return view('\product\index')->with($data);
          // return $slugmaterial;
     }
+    public function showMTS($slugmaterial, $slugtype, $slugstyle)
+    {   
+         $type = Type::where('slug',$slugtype)->get();
+         $style = Style::where('slug',$slugstyle)->get();
+         $material = Material::where('slug',$slugmaterial)->get();
+         $types = Type::all();
+         $materials = Material::all();
+         $styles = Style::all();
+         $products = [];
+         $productsType = $type[0]->products;
+         $productsStyle = $style[0]->products;
+         $productsMat = $material[0]->products;
+         foreach($productsType as $proType){
+           foreach($productsStyle as $proStyle){
+                if($proType==$proStyle){
+                    foreach($productsMat as $proMat){
+                        if($proMat == $proStyle){
+                            array_push($products, $proStyle);
+                        }
+                    }
+                }
+           } 
+         }
+         $data = array(
+            'products'=>$products,
+            'types'=>$types,
+            'materials'=>$materials,
+            'styles'=>$styles
+        );
+         return view('\product\index')->with($data);
+         // return $slugmaterial;
+    }
 }
