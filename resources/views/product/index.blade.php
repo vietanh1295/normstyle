@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Header + Video</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://mdbootstrap.com/previews/docs/latest/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://mdbootstrap.com/previews/docs/latest/css/mdb.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/custom.js') }}" defer></script>
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <style>
     	.product-grid4,.product-grid4 .product-image4{position:relative}
 .product-grid4{font-family:Poppins,sans-serif;text-align:center;border-radius:5px;overflow:hidden;z-index:1;transition:all .3s ease 0s}
@@ -71,7 +83,30 @@
     <h3 class="h3"><a href="/product/trang-suc-nam/{{$types[0]->slug}}/style/{{$styles[0]->slug}}">nhan nam/phuong dong</a></h3>
     <h2>material-type-style</h2>
     <h3 class="h3"><a href="/product/trang-suc-nam-{{$materials[0]->slug}}/{{$types[0]->slug}}/style/{{$styles[0]->slug}}">nhan nam bac/phuong dong</a></h3>
-    <h2>filter</h2>
+    <div id="filter">
+        <h2>filter</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Loại</h3>
+                @foreach($types as $type)
+                <input type="checkbox" name="" value="">  {{$type->name}}<br>
+                @endforeach
+            </div>
+            <div class="col-md-4">
+                <h3>Chất liệu</h3>
+                @foreach($materials as $material)
+                <input type="checkbox" name="" value="">  {{$material->name}}<br>
+                @endforeach
+            </div>
+            <div class="col-md-4">
+                <h3>Style</h3>
+                @foreach($styles as $style)
+                <input type="checkbox" name="" value="">  {{$style->name}}<br>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    
  
     <div class="row">
         @if(count($products)>0)
@@ -106,5 +141,8 @@
         @endif
     </div>
 </div>
+<script type="text/javascript">
+    console.log("aaa");
+</script>
 </body>
 </html>
