@@ -90,24 +90,25 @@
             <div class="col-md-4">
                 <h3>Loại</h3>
                 @foreach($types as $type)
-                <input type="checkbox" id="{{$type->slug}}"  name="" value="{{$type->id}}">  {{$type->name}}<br>
+                <input type="radio" class="filter type" autocomplete="off" name="type" value="{{$type->slug}}">{{$type->name}}<br>
                 @endforeach
             </div>
             <div class="col-md-4">
                 <h3>Chất liệu</h3>
                 @foreach($materials as $material)
-                <input type="checkbox" id="{{$material->slug}}"  name="" value="">  {{$material->name}}<br>
+                <input type="radio" class="filter material" autocomplete="off" name="material" value="{{$material->slug}}">  {{$material->name}}<br>
                 @endforeach
             </div>
             <div class="col-md-4">
                 <h3>Style</h3>
                 @foreach($styles as $style)
-                <input type="checkbox" id="{{$style->slug}}"  name="" value="">  {{$style->name}}<br>
+                <input type="radio" class="filter style" autocomplete="off" name="style" value="{{$style->slug}}">  {{$style->name}}<br>
                 @endforeach
             </div>
         </div>
-        <input type="checkbox" id="checkbox1" onchange="check(this)" name="" value="">check box<br>
-        <a href="#" class="btn btn-success">search</a>
+        <div id="search-container">
+        {{-- <a href="#" class="btn btn-success">search</a> --}}
+        </div>
     </div>
     
  
@@ -145,23 +146,65 @@
     </div>
 </div>
 <script type="text/javascript">
-    // $('#checkbox1').change(function() {
-    //     if(this.checked) {           
-    //         alert("checked!");
-    //     }
-    //     else if(!(this.checked)){
-    //         alert("unchecked!");
-    //     }
-                
-    // });
-    function check(x){
-        if(this.checked) {           
-            alert("checked!");
+    count = 0;
+    material="";
+    type="";
+    style="";
+    source = "/product/trang-suc-nam";
+    $('.filter').change(function(){
+        if(this.checked){ 
+            count++;
+            if($( this ).hasClass( "type" )){
+            type=`/${$(this).val()}`;
+            if(count==1){
+            $('#search-container').append(`<button id='search-btn' onclick='redirect()' class='btn btn-success'>search</button>`) 
+            }         
+        }
+            else if($( this ).hasClass( "material" )){
+                material = `-${$(this).val()}`;
+                if(count==1){
+            $('#search-container').append(`<button id='search-btn' onclick='redirect()' class='btn btn-success'>search</button>`) 
+            } 
+                // alert("materialchecked!");
+            }
+            else if($( this ).hasClass( "style" )){
+                style=`/style/${$(this).val()}`;
+                if(count==1){
+            $('#search-container').append(`<button id='search-btn' onclick='redirect()' class='btn btn-success'>search</button>`) 
+            } 
+                // alert("stylechecked!");
+            }
         }
         else if(!(this.checked)){
-            alert("unchecked!");
+            count--;
+                if($( this ).hasClass( "type" )){
+            type=``;
+            if(count==0){
+            $( "#search-btn" ).remove();
+            }         
         }
-        // alert(x);
+            else if($( this ).hasClass( "material" )){
+                material = ``;
+                if(count==0){
+            $( "#search-btn" ).remove();
+            } 
+                // alert("materialchecked!");
+            }
+            else if($( this ).hasClass( "style" )){
+                style=``;
+                if(count==0){
+             $( "#search-btn" ).remove();
+            } 
+                // alert("stylechecked!");
+            }
+
+            // alert("unchecked!");
+        }
+                
+    });
+    function redirect(){
+        href = source+material+type+style;
+        $(location).attr('href', href);
     }
 </script>
 </body>
