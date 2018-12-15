@@ -12,8 +12,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/custom.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -89,22 +90,24 @@
             <div class="col-md-4">
                 <h3>Loại</h3>
                 @foreach($types as $type)
-                <input type="checkbox" name="" value="">  {{$type->name}}<br>
+                <input type="checkbox" id="{{$type->slug}}"  name="" value="{{$type->id}}">  {{$type->name}}<br>
                 @endforeach
             </div>
             <div class="col-md-4">
                 <h3>Chất liệu</h3>
                 @foreach($materials as $material)
-                <input type="checkbox" name="" value="">  {{$material->name}}<br>
+                <input type="checkbox" id="{{$material->slug}}"  name="" value="">  {{$material->name}}<br>
                 @endforeach
             </div>
             <div class="col-md-4">
                 <h3>Style</h3>
                 @foreach($styles as $style)
-                <input type="checkbox" name="" value="">  {{$style->name}}<br>
+                <input type="checkbox" id="{{$style->slug}}"  name="" value="">  {{$style->name}}<br>
                 @endforeach
             </div>
         </div>
+        <input type="checkbox" id="checkbox1" onchange="check(this)" name="" value="">check box<br>
+        <a href="#" class="btn btn-success">search</a>
     </div>
     
  
@@ -142,7 +145,24 @@
     </div>
 </div>
 <script type="text/javascript">
-    console.log("aaa");
+    // $('#checkbox1').change(function() {
+    //     if(this.checked) {           
+    //         alert("checked!");
+    //     }
+    //     else if(!(this.checked)){
+    //         alert("unchecked!");
+    //     }
+                
+    // });
+    function check(x){
+        if(this.checked) {           
+            alert("checked!");
+        }
+        else if(!(this.checked)){
+            alert("unchecked!");
+        }
+        // alert(x);
+    }
 </script>
 </body>
 </html>
