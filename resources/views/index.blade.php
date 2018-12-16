@@ -1,5 +1,12 @@
 @extends('layouts.app')
-@include('inc.nav-index')
+<div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+    </div>
+
 @section('content')
 <section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="height:100vh; background-size: cover; background-image: url({{asset('img/actor-adult-black-and-white-432059.jpg')}});">
         <div class="container-fluid">
@@ -118,4 +125,12 @@
         <div class="text-center py-2 lead">Copyright © 2017 - Joel Miguel Valente <p>Visita mi web demo creado con wordpress <br> con mi theme desde cero <a href="http://www.portfolio2017.skn1.com/oficial/" target="_blank">Portfolio2017</a></p>
         </div>
     </footer>
+    <script>
+    setTimeout(function(){
+        $('body').addClass('loaded');
+    }, 2000);
+    setTimeout(function(){
+        $('.navbar').addClass('fixed-top');
+    }, 2300);
+</script>
 @endsection

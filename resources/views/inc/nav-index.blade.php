@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary default-color-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary default-color-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Norm Style') }}
