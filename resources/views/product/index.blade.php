@@ -66,24 +66,24 @@
     @php 
     $typeName = str_replace('nam', '', $type->name); 
     @endphp
-    <h3 class="h3"><a href="/product/trang-suc-nam/{{$type->slug}}">{{$typeName}}</a></h3>
+    <h3 class="h3"><a href="/products/trang-suc-nam/{{$type->slug}}">{{$typeName}}</a></h3>
     @endforeach
     <h2>Chất liệu</h2>
     @foreach($materials as $material)
-    <h3 class="h3"><a href="/product/trang-suc-nam-{{$material->slug}}">{{$material->name}}</a></h3>
+    <h3 class="h3"><a href="/products/trang-suc-nam-{{$material->slug}}">{{$material->name}}</a></h3>
     @endforeach
     <h2>Style</h2>
     @foreach($styles as $style)
-    <h3 class="h3"><a href="/product/trang-suc-nam/style/{{$style->slug}}">{{$style->name}}</a></h3>
+    <h3 class="h3"><a href="/products/trang-suc-nam/style/{{$style->slug}}">{{$style->name}}</a></h3>
     @endforeach
     <h2>material-type</h2>
-    <h3 class="h3"><a href="/product/trang-suc-nam-{{$materials[0]->slug}}/{{$types[0]->slug}}">nhan nam bac</a></h3>
+    <h3 class="h3"><a href="/products/trang-suc-nam-{{$materials[0]->slug}}/{{$types[0]->slug}}">nhan nam bac</a></h3>
     <h2>material-style</h2>
-    <h3 class="h3"><a href="/product/trang-suc-nam-{{$materials[0]->slug}}/style/{{$styles[0]->slug}}">bac-phuong dong style</a></h3>
+    <h3 class="h3"><a href="/products/trang-suc-nam-{{$materials[0]->slug}}/style/{{$styles[0]->slug}}">bac-phuong dong style</a></h3>
     <h2>type-style</h2>
-    <h3 class="h3"><a href="/product/trang-suc-nam/{{$types[0]->slug}}/style/{{$styles[0]->slug}}">nhan nam/phuong dong</a></h3>
+    <h3 class="h3"><a href="/products/trang-suc-nam/{{$types[0]->slug}}/style/{{$styles[0]->slug}}">nhan nam/phuong dong</a></h3>
     <h2>material-type-style</h2>
-    <h3 class="h3"><a href="/product/trang-suc-nam-{{$materials[0]->slug}}/{{$types[0]->slug}}/style/{{$styles[0]->slug}}">nhan nam bac/phuong dong</a></h3>
+    <h3 class="h3"><a href="/products/trang-suc-nam-{{$materials[0]->slug}}/{{$types[0]->slug}}/style/{{$styles[0]->slug}}">nhan nam bac/phuong dong</a></h3>
     <div id="filter">
         <h2>filter</h2>
         <div class="row">
@@ -150,7 +150,7 @@
     material="";
     type="";
     style="";
-    source = "/product/trang-suc-nam";
+    source = "/products/trang-suc-nam";
     $('.filter').change(function(){
         if(this.checked){ 
             count++;
