@@ -76,11 +76,17 @@
 .small-btn{
 	font-size: 10px;
 }
-.navbar:hover{
+.navbar-hover{
   background: rgba(255,255,255,.94) !important;
 }
-.navbar:hover .navbar-brand{
-	color: black;
+.navbar-brand-hover{
+    color: black;
+}
+.navbar-scroll{
+  background: rgba(255,255,255,.94) !important;
+}
+.navbar-brand-scroll{
+  color: black;
 }
 /*.navbar:hover .navbar-nav .nav-item .nav-link{
 	color: black !important;
@@ -175,13 +181,6 @@
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-// p {
-//     line-height: 1.33em;
-//     color: #7E7E7E;
-// }
-// h1 {
-//     color: #EEEEEE;
-// }
 
 #loader-wrapper {
     position: fixed;

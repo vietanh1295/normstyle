@@ -1,21 +1,38 @@
 $(document).ready(function(){
-// $(window).scroll(function(){
-    //     $('nav').toggleClass('scrolled', $(this).scrollTop()>600);
-    // });
-    // $(".hover").mouseover(function(){
-    //     // alert("aa");
-    // })
-    $(".navbar").mouseover(function() {
-        $(this).toggleClass("navbar-dark navbar-light");
-    })
-    $(".navbar").mouseout(function() {
-        $(this).toggleClass("navbar-dark navbar-light");
-    })
-    $(window).scroll(function() {
-        $('nav').toggleClass('navbar-scrolled', $(this).scrollTop() > 0);
-        // $(".navbar").toggleClass("navbar-dark navbar-light",$(this).scrollTop()>0);
-        // $('.nav-link').css("color", "black");
-    })
+// $(".navbar").mouseover(function() {
+//         if(($(this).hasClass("navbar-dark"))){
+//           $(this).removeClass("navbar-dark");
+//           $(this).addClass("navbar-light");
+//         }
+//         // $(this).toggleClass("navbar-dark navbar-light");
+//         $(this).toggleClass("navbar-hover");
+//         $('.navbar-brand').toggleClass("navbar-brand-hover");
+//     });
+//     $(".navbar").mouseout(function() {
+//         if(($(this).hasClass("navbar-light"))&&($(window).scrollTop() == 0)){
+//           $(this).removeClass("navbar-light");
+//           $(this).addClass("navbar-dark");
+//         }
+//         // $(this).toggleClass("navbar-dark navbar-light");
+//         $(this).toggleClass("navbar-hover");
+//         $('.navbar-brand').toggleClass("navbar-brand-hover");
+//     });
+//     $(window).scroll(function() {
+//       if($(this).scrollTop() > 0){
+//         if(($('.navbar').hasClass( "navbar-dark" ))){
+//           $('.navbar').removeClass("navbar-dark");
+//           $('.navbar').addClass("navbar-light");
+//         }
+//       }
+//       if(($(this).scrollTop() == 0)&&!($('.navbar').is(":hover"))){
+//         if(($('.navbar').hasClass( "navbar-light" ))){
+//           $('.navbar').removeClass("navbar-light");
+//           $('.navbar').addClass("navbar-dark");
+//         }
+//       }
+//         $('.navbar').toggleClass("navbar-scroll", $(this).scrollTop() > 0);
+//         $('.navbar-brand').toggleClass("navbar-brand-scroll",$(this).scrollTop()>0);
+//     })
     $(window).resize(function(){
   if ($(window).width() >= 980){  
 

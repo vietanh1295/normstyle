@@ -10572,11 +10572,19 @@ a.text-dark:focus {
   font-size: 10px;
 }
 
-.navbar:hover {
+.navbar-hover {
   background: rgba(255, 255, 255, 0.94) !important;
 }
 
-.navbar:hover .navbar-brand {
+.navbar-brand-hover {
+  color: black;
+}
+
+.navbar-scroll {
+  background: rgba(255, 255, 255, 0.94) !important;
+}
+
+.navbar-brand-scroll {
   color: black;
 }
 
