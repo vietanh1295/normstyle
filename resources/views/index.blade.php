@@ -157,14 +157,21 @@
           $('.navbar').addClass("navbar-light");
         }
       }
-      if(($(this).scrollTop() == 0)){
+      if(($(this).scrollTop() == 0)&&($('.navbar').is(":hover"))){
         if(($('.navbar').hasClass( "navbar-light" ))){
           $('.navbar').removeClass("navbar-light");
           $('.navbar').addClass("navbar-dark");
+          alert('hover');
         }
       }
+      // if(($(this).scrollTop() == 0)&&($('.navbar').is(":hover"))){
+      //   if(($('.navbar').hasClass( "navbar-light" ))){
+      //     // $('.navbar').removeClass("navbar-light");
+      //     // $('.navbar').addClass("navbar-dark");
+      //   }
+      // }
         $('.navbar').toggleClass("navbar-scroll", $(this).scrollTop() > 0);
         $('.navbar-brand').toggleClass("navbar-brand-scroll",$(this).scrollTop()>0);
-    })
+    });
 </script>
 @endsection
