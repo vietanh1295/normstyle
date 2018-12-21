@@ -1,11 +1,11 @@
 @extends('layouts.app')
-<div id="loader-wrapper">
+{{-- <div id="loader-wrapper">
       <div id="loader"></div>
 
       <div class="loader-section section-left"></div>
             <div class="loader-section section-right"></div>
 
-    </div>
+    </div> --}}
 
 @section('content')
 <section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="height:100vh; background-size: cover; background-image: url({{asset('img/actor-adult-black-and-white-432059.jpg')}});">
@@ -126,12 +126,16 @@
         </div>
     </footer>
     <script>
-    setTimeout(function(){
-        $('body').addClass('loaded');
-    }, 2000);
-    setTimeout(function(){
-        $('.navbar').addClass('fixed-top');
-    }, 2300);
+    // setTimeout(function(){
+    //     $('body').addClass('loaded');
+    // }, 2000);
+    // setTimeout(function(){
+    //     $('.navbar').addClass('fixed-top');
+    // }, 2300);
+    window.onload = function() {
+    $('body').addClass('loaded');
+    $('.navbar').addClass('fixed-top');
+    }
     $(".navbar").mouseover(function() {
         if(($(this).hasClass("navbar-dark"))){
           $(this).removeClass("navbar-dark");
@@ -157,19 +161,12 @@
           $('.navbar').addClass("navbar-light");
         }
       }
-      if(($(this).scrollTop() == 0)&&($('.navbar').is(":hover"))){
+      if(($(this).scrollTop() == 0)&&!($('.navbar').is(":hover"))){
         if(($('.navbar').hasClass( "navbar-light" ))){
           $('.navbar').removeClass("navbar-light");
           $('.navbar').addClass("navbar-dark");
-          alert('hover');
         }
       }
-      // if(($(this).scrollTop() == 0)&&($('.navbar').is(":hover"))){
-      //   if(($('.navbar').hasClass( "navbar-light" ))){
-      //     // $('.navbar').removeClass("navbar-light");
-      //     // $('.navbar').addClass("navbar-dark");
-      //   }
-      // }
         $('.navbar').toggleClass("navbar-scroll", $(this).scrollTop() > 0);
         $('.navbar-brand').toggleClass("navbar-brand-scroll",$(this).scrollTop()>0);
     });
